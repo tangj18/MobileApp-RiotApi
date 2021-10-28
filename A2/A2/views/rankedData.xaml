@@ -1,0 +1,697 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="A2.views.rankedData"
+            BackgroundColor="#99400191"
+            BarBackgroundColor="#99400191">
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem x:Name="addFav"
+                     Clicked="boolFav"
+                     ></ToolbarItem>
+    </TabbedPage.ToolbarItems>
+    <!--Pages can be added as references or inline-->
+    <ContentPage Title="Solo Queue">
+        <ContentPage.Content>
+            <RelativeLayout>
+                <Image Source="threshWallpaper.jpg"
+                       Opacity="0.55"
+                       Margin="-40"
+                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"></Image>
+                <Grid RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                      RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
+                      Padding="10,10"
+                      Margin="0,20, 0, 0">
+                    <Frame CornerRadius="30"
+                           Margin="15, 0, 15, 10"
+                           Padding="300"
+                           BackgroundColor="#99F0A1F3"
+                           HorizontalOptions="Center"
+                           VerticalOptions="StartAndExpand"
+                           Grid.Row="1"
+                           Grid.RowSpan="5"
+                           Grid.ColumnSpan="2">
+                        <Label Text=" "></Label>
+                    </Frame>
+                    <Frame CornerRadius="60"
+                           HeightRequest="200"
+                           WidthRequest="111"
+                           Padding="0"
+                           HorizontalOptions="Center"
+                           IsClippedToBounds="True"
+                           Grid.Row="0"
+                           Margin="0, 20,0, -20"
+                           Grid.ColumnSpan="2">
+                        <Image x:Name="proficon"
+                               HeightRequest="200"
+                               WidthRequest="200">
+                        </Image>
+                    </Frame>
+                    <Image x:Name="lvlBorder"
+                           Grid.Row="0"
+                           Grid.ColumnSpan="2"
+                           Margin="-45, -25,-45,-65"></Image>
+                    <Label x:Name="leveltag"
+                           Grid.Row="0"
+                           FontSize="12"
+                           Grid.ColumnSpan="2"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End"
+                           TextColor="White"
+                           Margin="0,0,0,-35"></Label>
+
+                    
+                    
+                    <Image x:Name="rankborder"
+                           Grid.Row="2"
+                           Grid.ColumnSpan="2"
+                          ></Image>
+                  
+                    <Label x:Name="username"
+                           Grid.Row="1"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End"
+                           FontSize="35"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           Grid.ColumnSpan="2"
+                           Margin="0,0,0,0" />
+                    <Label Text="Sorry, Not Enough Ranked Games Played. Check Back After You Play A Few More Games."
+                           x:Name="noRank"
+                           Grid.Row="4"
+                           Grid.ColumnSpan="2"
+                           HorizontalTextAlignment="Center"
+                           VerticalOptions="Start"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           Margin="50, 50, 50, -30"
+                           IsVisible="false"></Label>
+                    <Label x:Name="rankEmblem"
+                           Grid.Row="4"
+                           FontSize="30"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Grid.ColumnSpan="2"
+                           HorizontalOptions="Center"
+                           Margin="0,20,0,0"></Label>
+                    <Label x:Name="statistics"
+                           Grid.Row="4"
+                           FontSize="17"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Grid.ColumnSpan="2"
+                           HorizontalOptions="Center"
+                           Margin="0,55,0,0"></Label>
+                    <Label Text="Winrate:"
+                           x:Name="wrLabel"
+                           Grid.Row="4"
+                           Grid.ColumnSpan="2"
+                           FontSize="17"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           HorizontalOptions="Center"
+                           Margin="-120,82,0,-50"></Label>
+                    
+                    <ProgressBar Grid.Row="5"
+                                 x:Name="progressBack"
+                                 Grid.Column="1"
+                                 VerticalOptions="Start"
+                                 Margin="-20, -23, 110, 0"
+                                 Progress="1"
+                                 ProgressColor="#ff675c"
+                                 ScaleY="5"></ProgressBar>
+                    <ProgressBar x:Name="progressFront"
+                                 Grid.Row="5"
+                                 Grid.Column="1"
+                                 VerticalOptions="Start"
+                                 Margin="-20, -23, 110, 0"
+                                 ProgressColor="#05cdfa"
+                                 ScaleY="5"></ProgressBar>
+                    <Label Text="55%"
+                           x:Name="winRate"
+                           Grid.Row="4"
+                           Grid.ColumnSpan="2"
+                           FontSize="17"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center"
+                           Margin="5,82,0,-50"></Label>
+                    <Label x:Name="promoTitle"
+                           Text="Series In Progress: "
+                           Grid.Row="5"
+                           Grid.ColumnSpan="2"
+                           FontSize="15"
+                           FontAttributes="Bold"
+                           TextDecorations="Underline"
+                           TextColor="Black"
+                           VerticalOptions="Start"
+                           HorizontalOptions="Center"
+                           Margin="0,0,0,-10"/>
+                    <ProgressBar x:Name="p1"
+                                 Progress="1"
+                                 Grid.Row="5"
+                                 Grid.ColumnSpan="2"
+                                 VerticalOptions="Start"
+                                 HorizontalOptions="Center"
+                                 Margin="195, 30, 195, 0"
+                                 ScaleY="5"></ProgressBar>
+                    <ProgressBar x:Name="p2"
+                                 Progress="1"
+                                 Grid.Row="5"
+                                 Grid.ColumnSpan="2"
+                                 VerticalOptions="Start"
+                                 HorizontalOptions="Center"
+                                 Margin="165, 30, 225, 0"
+                                 ScaleY="5"></ProgressBar>
+                    <ProgressBar x:Name="p3"
+                                 Progress="1"
+                                 Grid.Row="5"
+                                 Grid.ColumnSpan="2"
+                                 VerticalOptions="Start"
+                                 HorizontalOptions="Center"
+                                 Margin="135, 30, 255, 0"
+                                 ScaleY="5"></ProgressBar>
+                    <ProgressBar x:Name="p4"
+                                 Progress="1"
+                                 Grid.Row="5"
+                                 Grid.ColumnSpan="2"
+                                 VerticalOptions="Start"
+                                 HorizontalOptions="Center"
+                                 Margin="225, 30, 165, 0"
+                                 ScaleY="5"></ProgressBar>
+                    <ProgressBar x:Name="p5"
+                                 Progress="1"
+                                 Grid.Row="5"
+                                 Grid.ColumnSpan="2"
+                                 VerticalOptions="Start"
+                                 HorizontalOptions="Center"
+                                 Margin="255, 30, 135, 0"
+                                 ScaleY="5"></ProgressBar>
+                    <Label x:Name="p1T"
+                           Grid.Row="5"
+                           Grid.ColumnSpan="2"
+                           VerticalOptions="End"
+                           HorizontalOptions="Center"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           Margin="0,0,118,56"></Label>
+                    <Label x:Name="p2T"
+                           Grid.Row="5"
+                           Grid.ColumnSpan="2"
+                           VerticalOptions="End"
+                           HorizontalOptions="Center"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           Margin="0,0,60,56"></Label>
+                    <Label x:Name="p3T"
+                           Grid.Row="5"
+                           Grid.ColumnSpan="2"
+                           VerticalOptions="End"
+                           HorizontalOptions="Center"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           Margin="1,0,0,56"></Label>
+                    <Label x:Name="p4T"
+                           Grid.Row="5"
+                           Grid.ColumnSpan="2"
+                           VerticalOptions="End"
+                           HorizontalOptions="Center"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           Margin="61,0,0,56"></Label>
+                    <Label x:Name="p5T"
+                           Grid.Row="5"
+                           Grid.ColumnSpan="2"
+                           VerticalOptions="End"
+                           HorizontalOptions="Center"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           Margin="121,0,0,56"
+                           ></Label>
+                </Grid>
+            </RelativeLayout>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage Title="Flex Queue">
+        <ContentPage.Content>
+            <RelativeLayout>
+                <Image Source="ahriWallpaper.jpg"
+                       Opacity="0.55"
+                       Margin="-40"
+                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"></Image>
+                <Grid RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                      RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
+                      Padding="10,10"
+                      Margin="0,20, 0, 0">
+                    <Frame CornerRadius="30"
+                           Margin="15, 0, 15, 10"
+                           Padding="300"
+                           BackgroundColor="#99c265f7"
+                           HorizontalOptions="Center"
+                           VerticalOptions="StartAndExpand"
+                           Grid.Row="1"
+                           Grid.RowSpan="5"
+                           Grid.ColumnSpan="2">
+                        <Label Text=" "></Label>
+                    </Frame>
+                    <Frame CornerRadius="60"
+                           HeightRequest="200"
+                           WidthRequest="111"
+                           Padding="0"
+                           HorizontalOptions="Center"
+                           IsClippedToBounds="True"
+                           Grid.Row="0"
+                           Margin="0, 20,0, -20"
+                           Grid.ColumnSpan="2">
+                        <Image x:Name="proficon1"
+                               HeightRequest="200"
+                               WidthRequest="200">
+                        </Image>
+                    </Frame>
+                    <Image x:Name="lvlBorder1"
+                           Grid.Row="0"
+                           Grid.ColumnSpan="2"
+                           Margin="-45, -25,-45,-65"></Image>
+                    <Label x:Name="leveltag1"
+                           Grid.Row="0"
+                           FontSize="12"
+                           Grid.ColumnSpan="2"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End"
+                           TextColor="White"
+                           Margin="0,0,0,-35"></Label>
+
+
+
+                    <Image x:Name="rankborder1"
+                           Grid.Row="2"
+                           Grid.ColumnSpan="2"
+                           ></Image>
+
+                    <Label x:Name="username1"
+                           Grid.Row="1"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End"
+                           FontSize="35"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           Grid.ColumnSpan="2"
+                           Margin="0,0,0,0" />
+                    <Label Text="Sorry, Not Enough Ranked Games Played. Check Back After You Play A Few More Games."
+                           x:Name="noRank1"
+                           Grid.Row="4"
+                           Grid.ColumnSpan="2"
+                           HorizontalTextAlignment="Center"
+                           VerticalOptions="Start"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           Margin="50, 50, 50, -30"
+                           IsVisible="false"></Label>
+                    <Label x:Name="rankEmblem1"
+                           Grid.Row="4"
+                           FontSize="30"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Grid.ColumnSpan="2"
+                           HorizontalOptions="Center"
+                           Margin="0,20,0,0"></Label>
+                    <Label x:Name="statistics1"
+                           Grid.Row="4"
+                           FontSize="17"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Grid.ColumnSpan="2"
+                           HorizontalOptions="Center"
+                           Margin="0,55,0,0"></Label>
+                    <Label Text="Winrate:"
+                           x:Name="wrLabel1"
+                           Grid.Row="4"
+                           Grid.ColumnSpan="2"
+                           FontSize="17"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           HorizontalOptions="Center"
+                           Margin="-120,82,0,-50"></Label>
+
+                    <ProgressBar Grid.Row="5"
+                                 x:Name="progressBack1"
+                                 Grid.Column="1"
+                                 VerticalOptions="Start"
+                                 Margin="-20, -23, 110, 0"
+                                 Progress="1"
+                                 ProgressColor="#ff675c"
+                                 ScaleY="5"></ProgressBar>
+                    <ProgressBar x:Name="progressFront1"
+                                 Grid.Row="5"
+                                 Grid.Column="1"
+                                 VerticalOptions="Start"
+                                 Margin="-20, -23, 110, 0"
+                                 ProgressColor="#05cdfa"
+                                 ScaleY="5"></ProgressBar>
+                    <Label Text="55%"
+                           x:Name="winRate1"
+                           Grid.Row="4"
+                           Grid.ColumnSpan="2"
+                           FontSize="17"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center"
+                           Margin="5,82,0,-50"></Label>
+                    <Label x:Name="promoTitle1"
+                           Text="Series In Progress: "
+                           Grid.Row="5"
+                           Grid.ColumnSpan="2"
+                           FontSize="15"
+                           FontAttributes="Bold"
+                           TextDecorations="Underline"
+                           TextColor="Black"
+                           VerticalOptions="Start"
+                           HorizontalOptions="Center"
+                           Margin="0,0,0,-10" />
+                    <ProgressBar x:Name="p1f"
+                                 Progress="1"
+                                 Grid.Row="5"
+                                 Grid.ColumnSpan="2"
+                                 VerticalOptions="Start"
+                                 HorizontalOptions="Center"
+                                 Margin="195, 30, 195, 0"
+                                 ScaleY="5"></ProgressBar>
+                    <ProgressBar x:Name="p2f"
+                                 Progress="1"
+                                 Grid.Row="5"
+                                 Grid.ColumnSpan="2"
+                                 VerticalOptions="Start"
+                                 HorizontalOptions="Center"
+                                 Margin="165, 30, 225, 0"
+                                 ScaleY="5"></ProgressBar>
+                    <ProgressBar x:Name="p3f"
+                                 Progress="1"
+                                 Grid.Row="5"
+                                 Grid.ColumnSpan="2"
+                                 VerticalOptions="Start"
+                                 HorizontalOptions="Center"
+                                 Margin="135, 30, 255, 0"
+                                 ScaleY="5"></ProgressBar>
+                    <ProgressBar x:Name="p4f"
+                                 Progress="1"
+                                 Grid.Row="5"
+                                 Grid.ColumnSpan="2"
+                                 VerticalOptions="Start"
+                                 HorizontalOptions="Center"
+                                 Margin="225, 30, 165, 0"
+                                 ScaleY="5"></ProgressBar>
+                    <ProgressBar x:Name="p5f"
+                                 Progress="1"
+                                 Grid.Row="5"
+                                 Grid.ColumnSpan="2"
+                                 VerticalOptions="Start"
+                                 HorizontalOptions="Center"
+                                 Margin="255, 30, 135, 0"
+                                 ScaleY="5"></ProgressBar>
+                    <Label x:Name="p1Tf"
+                           Grid.Row="5"
+                           Grid.ColumnSpan="2"
+                           VerticalOptions="End"
+                           HorizontalOptions="Center"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           Margin="0,0,118,56"></Label>
+                    <Label x:Name="p2Tf"
+                           Grid.Row="5"
+                           Grid.ColumnSpan="2"
+                           VerticalOptions="End"
+                           HorizontalOptions="Center"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           Margin="0,0,60,56"></Label>
+                    <Label x:Name="p3Tf"
+                           Grid.Row="5"
+                           Grid.ColumnSpan="2"
+                           VerticalOptions="End"
+                           HorizontalOptions="Center"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           Margin="1,0,0,56"></Label>
+                    <Label x:Name="p4Tf"
+                           Grid.Row="5"
+                           Grid.ColumnSpan="2"
+                           VerticalOptions="End"
+                           HorizontalOptions="Center"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           Margin="61,0,0,56"></Label>
+                    <Label x:Name="p5Tf"
+                           Grid.Row="5"
+                           Grid.ColumnSpan="2"
+                           VerticalOptions="End"
+                           HorizontalOptions="Center"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           Margin="121,0,0,56"></Label>
+                </Grid>
+            </RelativeLayout>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage Title="TFT">
+        <ContentPage.Content>
+            <RelativeLayout>
+                <Image Source="rivenWallpaper.png"
+                       Opacity="0.55"
+                       Margin="-40"
+                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"></Image>
+                <Grid RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                      RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
+                      Padding="10,10"
+                      Margin="0,20, 0, 0">
+
+                    <Frame CornerRadius="30"
+                           Margin="15, 0, 15, 10"
+                           Padding="300"
+                           BackgroundColor="#99F0A1F3"
+                           HorizontalOptions="Center"
+                           VerticalOptions="StartAndExpand"
+                           Grid.Row="1"
+                           Grid.RowSpan="5"
+                           Grid.ColumnSpan="2">
+                        <Label Text=" "></Label>
+                    </Frame>
+                    <Frame CornerRadius="60"
+                           HeightRequest="200"
+                           WidthRequest="111"
+                           Padding="0"
+                           HorizontalOptions="Center"
+                           IsClippedToBounds="True"
+                           Grid.Row="0"
+                           Margin="0, 20,0, -20"
+                           Grid.ColumnSpan="2">
+                        <Image x:Name="proficon2"
+                               HeightRequest="200"
+                               WidthRequest="200">
+                        </Image>
+                    </Frame>
+                    <Image x:Name="lvlBorder2"
+                           Grid.Row="0"
+                           Grid.ColumnSpan="2"
+                           Margin="-45, -25,-45,-65"></Image>
+                    <Label x:Name="leveltag2"
+                           Grid.Row="0"
+                           FontSize="12"
+                           Grid.ColumnSpan="2"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End"
+                           TextColor="White"
+                           Margin="0,0,0,-35"></Label>
+                    <Label x:Name="username2"
+                           Text="zzzzzzz"
+                           Grid.Row="1"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End"
+                           FontSize="35"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           Grid.ColumnSpan="2"
+                           Margin="0,0,0,0" />
+                    <Label Text="Ranked TFT"
+                           Grid.Row="2"
+                           VerticalOptions="Start"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           TextDecorations="Underline"
+                           TextColor="Black"
+                           Margin="50,10,0,0"></Label>
+                    
+                    
+                    <Image x:Name="rTFTemblem"
+                           Grid.Row="2"
+                         ></Image>
+
+                    <Label Text="Sorry, not enough games played, please come back after you play some more games."
+                           TextColor="Black"
+                           x:Name="rTFTrankText"
+                           FontSize="15"
+                           FontAttributes="Bold"
+                           Grid.Row="3"
+                           Grid.Column="1"
+                           VerticalOptions="End"
+                           HorizontalTextAlignment="Start"
+                           Margin="10,-10,50,10"></Label>
+                    <Label x:Name="rTFTrank"
+                           TextColor="Black"
+                           FontSize="21"
+                           FontAttributes="Bold"
+                           Grid.Row="2"
+                           Grid.Column="1"
+                           VerticalOptions="End"
+                           Margin="9,0,0,-5"></Label>
+                    <Label x:Name="rTFTratio"
+                           TextColor="Black"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           Grid.Row="2"
+                           Grid.Column="1"
+                           VerticalOptions="End"
+                           HorizontalTextAlignment="Start"
+                           Margin="10,0,50,-25"></Label>
+                    <Label x:Name="rTFTratio1"
+                           TextColor="Black"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           Grid.Row="2"
+                           Grid.Column="1"
+                           VerticalOptions="End"
+                           HorizontalTextAlignment="Start"
+                           Margin="10,0,50,-47"></Label>
+                    <ProgressBar x:Name="rTFTprogBack"
+                                 Grid.Row="3"
+                                 Grid.Column="1"
+                                 Progress="1"
+                                 ScaleY="5"
+                                 VerticalOptions="Center"
+                                 ProgressColor="#ff675c"
+                                 Margin="80,0,35,-10"></ProgressBar>
+                    <ProgressBar x:Name="rTFTprog"
+                                 Grid.Row="3"
+                                 Grid.Column="1"
+                                 Progress="1"
+                                 ScaleY="5"
+                                 VerticalOptions="Center"
+                                 ProgressColor="#05cdfa"
+                                 Margin="80,0,35,-10"></ProgressBar>
+                   
+                    <Label Text="Winrate: "
+                           x:Name="rTFTwinrate"
+                           TextColor="Black"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           Grid.Row="2"
+                           Grid.Column="1"
+                           VerticalOptions="End"
+                           HorizontalTextAlignment="Start"
+                           Margin="12,0,50,-73"></Label>
+                    <Label x:Name="rTFTwr"
+                           TextColor="White"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           Grid.Row="2"
+                           Grid.Column="1"
+                           VerticalOptions="End"
+                           HorizontalTextAlignment="Start"
+                           Margin="83,0,50,-73"></Label>
+
+                    
+                    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~HyperRoll~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                    
+                    <Label Text="Hyper Roll"
+                           Grid.Row="4"
+                           Grid.ColumnSpan="2"
+                           VerticalOptions="Start"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           TextDecorations="Underline"
+                           TextColor="Black"
+                           Margin="50,10,0,0"></Label>
+                    <Image x:Name="hTFTemblem"
+                           Grid.Row="4"
+                           ></Image>
+                    <Label x:Name="hTFTrank"
+                           TextColor="Black"
+                           FontSize="21"
+                           FontAttributes="Bold"
+                           Grid.Row="4"
+                           Grid.Column="1"
+                           VerticalOptions="End"
+                           Margin="9,0,0,-3"></Label>
+                    <Label x:Name="hTFTnum"
+                           TextColor="Black"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           Grid.Row="4"
+                           Grid.Column="1"
+                           VerticalOptions="End"
+                           HorizontalTextAlignment="End"
+                           Margin="0,0,50,-3"></Label>
+
+                    <Label Text="Sorry, not enough games played, please come back after you play some more games."
+                           TextColor="Black"
+                           x:Name="hTFTrankText"
+                           FontSize="13"
+                           FontAttributes="Bold"
+                           Grid.Row="5"
+                           Grid.Column="1"
+                           VerticalOptions="End"
+                           HorizontalTextAlignment="Start"
+                           Margin="10,-30,50,40"></Label>
+                    <Label x:Name="hTFTratio"
+                           TextColor="Black"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           Grid.Row="4"
+                           Grid.Column="1"
+                           VerticalOptions="End"
+                           HorizontalTextAlignment="Start"
+                           Margin="10,0,50,-30"></Label>
+                    <ProgressBar x:Name="hTFTprogBack"
+                                 Grid.Row="5"
+                                 Grid.Column="1"
+                                 ProgressColor="#ff675c"
+                                 Progress="1"
+                                 ScaleY="5"
+                                 VerticalOptions="Center"
+                                 Margin="80,0,35,27"></ProgressBar>
+                    <ProgressBar Grid.Row="5"
+                                 Grid.Column="1"
+                                 ProgressColor="#05cdfa"
+                                 x:Name="hTFTprog"
+                                 ScaleY="5"
+                                 VerticalOptions="Center"
+                                 Margin="80,0,35,27"></ProgressBar>
+                    <Label Text="Winrate: "
+                           x:Name="hTFTwinrate"
+                           TextColor="Black"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           Grid.Row="4"
+                           Grid.Column="1"
+                           VerticalOptions="End"
+                           HorizontalTextAlignment="Start"
+                           Margin="12,0,50,-55"></Label>
+                    <Label x:Name="hTFTwr"
+                           TextColor="White"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           Grid.Row="4"
+                           Grid.Column="1"
+                           VerticalOptions="End"
+                           HorizontalTextAlignment="Start"
+                           Margin="83,0,50,-55"></Label>
+
+                </Grid>
+            </RelativeLayout>
+        </ContentPage.Content>
+    </ContentPage>
+</TabbedPage>

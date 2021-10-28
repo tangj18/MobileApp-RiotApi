@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="A2.views.searchPage"
+             Padding="0,0,0,0"
+             BackgroundColor="#30F0A1F3">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Show Favourites" Clicked="ShowFav"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <RelativeLayout Margin="0">
+            <Image x:Name="searchPageBackground"
+                   Opacity="0.75"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"></Image>
+            <Grid  RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
+                   Margin="50, 50,50,125">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.5*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Image x:Name="logo"
+                       Grid.Row="0"></Image>
+                <Frame Grid.Row="3"
+                       CornerRadius="50"
+                       Padding="0"
+                       HasShadow="True"
+                       BackgroundColor="#99F0A1F3">
+                    <Picker Title="Select Region"
+                            TitleColor="#430785"
+                            TextColor="black"
+                            FontSize="20"         
+                            x:Name="Region"
+                            SelectedItem="regionName"
+                            VerticalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            Margin="25,0">
+                    </Picker>
+
+                </Frame>
+                <Frame Grid.Row="4"
+                       CornerRadius="50"
+                       Padding="0"
+                       HasShadow="True"
+                       BackgroundColor="#99F0A1F3">
+                    <Entry x:Name="Username"
+                           Placeholder="Enter Username"
+                           TextColor="#430785"
+                           PlaceholderColor="#430785"
+                           FontSize="20"                            
+                           VerticalOptions="Center"
+                           HorizontalTextAlignment="Center"
+                           Margin="25,0"></Entry>
+                </Frame>
+
+                <Frame Grid.Row="5"
+                       CornerRadius="50"
+                       Padding="0"
+                       HasShadow="True"
+                       BackgroundColor="#99F0A1F3">
+                    <Button Margin="5,0"
+                            Text="Search"
+                            Clicked="searchPlayer"
+                            VerticalOptions="Center"
+                        BackgroundColor="Transparent"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="#430785"></Button>
+                </Frame>
+            </Grid>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

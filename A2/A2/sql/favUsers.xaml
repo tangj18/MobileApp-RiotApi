@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="A2.sql.favUsers"
+             BackgroundColor="#99f7ea9c">
+    <ContentPage.Content>
+        <RelativeLayout>
+            
+            <Image Source="marksmanBackground.png"
+                   Opacity="0.8"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"></Image>
+            <Grid  RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
+                   Margin="50,50,50,125">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Text="Favourites"
+                       HorizontalOptions="Center"
+                       Grid.Row="0"
+                       FontSize="40"
+                       TextColor="black"
+                       FontAttributes="Bold"></Label>
+                <Frame CornerRadius="30"
+                       Margin="-10, 10, -10, -40"
+                       Padding="300"
+                       BackgroundColor="#99bab9b5"
+                       HorizontalOptions="Center"
+                       VerticalOptions="StartAndExpand"
+                       Grid.Row="1"
+                       Grid.RowSpan="5"
+                       HasShadow="True"
+                       >
+                    <Label Text=" "></Label>
+                </Frame>
+                <ListView x:Name="pList"
+                          ItemSelected="onSelectPerson"
+                          Margin="0,30"
+                          Grid.Row="1"
+                          Grid.RowSpan="5">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="15,0">
+                                    <Label x:Name="name"
+                                           TextColor="black"
+                                           FontSize="18"
+                                           Text="{Binding summonerName}"></Label>
+                                    <Label x:Name="region"
+                                           FontSize="13"
+                                           TextColor="black"
+                                           Text="{Binding summonerRegion}"
+                                           Margin="0,-8,0,0"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>
