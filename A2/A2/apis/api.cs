@@ -14,7 +14,7 @@ namespace A2.apis
         private string region { get; set; }
       public api(string reg)
         {
-            key = "RGAPI-f86916c3-0333-434f-beaa-2a3d637eae87";
+            key = "RGAPI-f86916c3-0333-434f-beaa-2a3d637eae87"; //probably expired, gotta change this if you wanna use it
             region = reg;
         }
 

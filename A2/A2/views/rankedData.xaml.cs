@@ -30,6 +30,7 @@ namespace A2.views
             teamfighttactic tft = new teamfighttactic(region);
             helperFunction helperFunction = new helperFunction();
             emblemGetter emblemGetter = new emblemGetter();
+
             var summonerData = summoner.GetSummonerByName(name);
 
             sqlRegion = region;
